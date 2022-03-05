@@ -378,17 +378,19 @@ function update() {
 		else if (enemyKbn == 4) {
 			enemySpeed = scrollSpeed;
 			
-			if (frameCount <= 10 ) {
-				enemyImage.src = ImgArray.Item2_1;
-			}
-			else if (frameCount <= 16 ) {
-				enemyImage.src = ImgArray.Item2_2;
-			}
-			else if (frameCount <= 26 ) {
-				enemyImage.src = ImgArray.Item2_1;
-			}
-			else {
-				enemyImage.src = ImgArray.Item2_2;
+			if (hitFlg == 0) { // 当たり判定中は除外
+				if (frameCount <= 10 ) {
+					enemyImage.src = ImgArray.Item2_1;
+				}
+				else if (frameCount <= 16 ) {
+					enemyImage.src = ImgArray.Item2_2;
+				}
+				else if (frameCount <= 26 ) {
+					enemyImage.src = ImgArray.Item2_1;
+				}
+				else {
+					enemyImage.src = ImgArray.Item2_2;
+				}
 			}
 		}
 		else {
@@ -424,7 +426,6 @@ function update() {
 				else {
 					characterImage.src = ImgArray.CharaKick2;
 				}
-				//characterImage.src = ImgArray.CharaSlide2;
 			}
 			else {
 				characterImage.src = ImgArray.CharaSlide1;
@@ -494,7 +495,7 @@ function update() {
 						hitPoint = 3;
 						gaugeImage.src = ImgArray.gauge3;
 					}
-					enemyImage.src =　"";
+					enemyImage.src = "";
 				}
 				// アイテム以外の場合、ダメージ
 				else {		
@@ -566,7 +567,6 @@ function update() {
 		ivcKbn = 0;
 		characterR = 21; // 当たり判定：戻す
 	}
-	
 }
 
 function draw() {
